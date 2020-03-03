@@ -28,7 +28,7 @@ public class AiController : MonoBehaviour
         pos.y = 1.2f;
         pos.z = UnityEngine.Random.Range(-30f, 40f);
         rb = gameObject.GetComponent<Rigidbody>();
-        timeFire = gunAi.GetComponent<Gun>().time_fire;
+        //timeFire = gunAi.GetComponent<Gun>().time_fire;
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class AiController : MonoBehaviour
             if (timePer < 0)
             {
                 fire = true;
-                timeFire = gunAi.GetComponent<Gun>().time_fire;
+                //timeFire = gunAi.GetComponent<Gun>().time_fire;
             }
         }
         if (Math.Abs(gameObject.transform.position.x - pos.x) <= 1 || Math.Abs(gameObject.transform.position.z - pos.z) <= 1)
@@ -74,7 +74,7 @@ public class AiController : MonoBehaviour
         }
         else
         {
-            timeFire = gunAi.GetComponent<Gun>().time_fire;
+            //timeFire = gunAi.GetComponent<Gun>().time_fire;
             fire = true;
         }
     }

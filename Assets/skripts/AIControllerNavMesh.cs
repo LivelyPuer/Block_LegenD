@@ -23,7 +23,7 @@ public class AIControllerNavMesh : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
         pos = Gide.transform.position;
-        timeFire = gunAi.GetComponent<Gun>().time_fire;
+        //timeFire = gunAi.GetComponent<Gun>().time_fire;
     }
 
     // Update is called once per frame

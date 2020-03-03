@@ -140,7 +140,9 @@ MonoBehaviour:
   bullet: {fileID: 4581902009387462213, guid: 9e8ce971f5f111343b6714d48a6f3a0d, type: 3}
   shootPoint: {fileID: 8521863183188863838}
   Impulse: 2
-  time_fire: 0.1
+  BulletInMagazineNow: 0
+  NumBulletInMagazine: 0
+  NumBulletAll: 0
   auto: 0
 --- !u!1001 &5580247682514148356
 PrefabInstance:

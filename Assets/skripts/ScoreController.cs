@@ -17,6 +17,7 @@ public class ScoreController : MonoBehaviour
     [SerializeField] Text ScoreBlueUI;
     [SerializeField] Text YP;
     [SerializeField] Text ScoreRedUI;
+    [SerializeField] public Text Bullet;
     // Start is called before the first frame update
     void Start()
     {
