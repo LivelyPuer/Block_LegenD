@@ -11,6 +11,7 @@ TagManager:
   - NoGide
   - HUD
   - HitMarker
+  - Turel
   layers:
   - Default
   - TransparentFX

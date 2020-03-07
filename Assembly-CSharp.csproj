@@ -64,9 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\models\player\Animations\AnimController.cs" />
-    <Compile Include="Assets\skripts\AiController.cs" />
     <Compile Include="Assets\skripts\AIControllerNavMesh.cs" />
     <Compile Include="Assets\skripts\AreaFire_Setings.cs" />
+    <Compile Include="Assets\skripts\BulletSettingForTurel.cs" />
     <Compile Include="Assets\skripts\BulletSettings.cs" />
     <Compile Include="Assets\skripts\cameraM.cs" />
     <Compile Include="Assets\skripts\Door_Controller.cs" />
@@ -81,6 +81,7 @@
     <Compile Include="Assets\skripts\ScoreController.cs" />
     <Compile Include="Assets\skripts\StartTimeScore.cs" />
     <Compile Include="Assets\skripts\TrajectoryRendererAdvanced.cs" />
+    <Compile Include="Assets\skripts\TurelController.cs" />
     <Compile Include="Assets\skripts\WeaponGet.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

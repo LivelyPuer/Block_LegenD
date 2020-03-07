@@ -5,20 +5,30 @@ using UnityEngine;
 public class BulletSettings : MonoBehaviour
 {
     public List<GameObject> people = new List<GameObject>();
-    [SerializeField] public Canvas ES;
+    [SerializeField] private Canvas ES;
     private GameObject bullet;
     public bool player;
-    public GameObject master;
+    private GameObject master;
     public GameObject enemy;
     void Start()
     {
         bullet = (GameObject)this.gameObject;
+        ES = GameObject.FindWithTag("HUD").GetComponent<Canvas>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+        if (player)
+        {
+            master = GameObject.FindWithTag("Player").gameObject;
+        }
+        else
+        {
+            master = GameObject.FindWithTag("Enemy").gameObject;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,6 +47,8 @@ public class BulletSettings : MonoBehaviour
             master.GetComponent<PlayerController>().MyScore++;
             Bul_Destroy();
         }
+
+        
 
     }
 
