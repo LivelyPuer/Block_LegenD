@@ -8,6 +8,7 @@ public class WeaponGet : MonoBehaviour
     public List<GameObject> guns = new List<GameObject>();
     public int IndexGun;
     private GameObject player;
+    public Animator PlayerAnim;
 
     void Start()
     {
@@ -26,10 +27,10 @@ public class WeaponGet : MonoBehaviour
         {
             UseGun(1);
         }
-        //if (Input.GetKeyDown(KeyCode.Keypad3))
-        //{
-        //    UseGun(0);
-        //}
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            UseGun(2);
+        }
     }
 
     public void UseGun(int i)
@@ -44,6 +45,14 @@ public class WeaponGet : MonoBehaviour
             g.SetActive(false);
         }
         IndexGun = i;
+        if (guns[IndexGun].GetComponent<Gun>().MeleeWeapons)
+        {
+            PlayerAnim.SetBool("KnifeInArm", true);
+        }
+        else
+        {
+            PlayerAnim.SetBool("KnifeInArm", false);
+        }
         guns[IndexGun].SetActive(true);
         gameObject.SetActive(false);
     }

@@ -12,6 +12,9 @@ TagManager:
   - HUD
   - HitMarker
   - Turel
+  - KnifePlayer
+  - GunPlayer
+  - PistolPlayer
   layers:
   - Default
   - TransparentFX

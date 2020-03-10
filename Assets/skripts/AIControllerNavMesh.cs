@@ -29,15 +29,7 @@ public class AIControllerNavMesh : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Math.Abs(gameObject.transform.position.x - player.transform.position.x) <= 15 && Math.Abs(gameObject.transform.position.x - player.transform.position.x) >= 15)
-        {
-            pos = player.transform.position;
-
-        }
-        else
-        {
-            pos = Gide.transform.position;
-        }
+        pos = Gide.transform.position;
         agent.SetDestination(pos);
     }
     private void OnTriggerStay(Collider other)
@@ -46,7 +38,7 @@ public class AIControllerNavMesh : MonoBehaviour
         {
             gameObject.transform.LookAt(player.transform.position);
             Move(3);
-            gunAi.GetComponent<Gun>().Shoot();
+            gunAi.GetComponent<Gun>().ShootForAi();
             rb.transform.position
                 -= rb.transform.forward * speedOtd * Time.deltaTime;
 
@@ -69,11 +61,11 @@ public class AIControllerNavMesh : MonoBehaviour
                 {
                     case 1:
                         Move(1);
-                        gunAi.GetComponent<Gun>().Shoot();
+                        gunAi.GetComponent<Gun>().ShootForAi();
                         break;
                     case 2:
                         Move(2);
-                        gunAi.GetComponent<Gun>().Shoot();
+                        gunAi.GetComponent<Gun>().ShootForAi();
                         break;
                 }
                 break;

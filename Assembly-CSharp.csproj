@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\models\player\Animations\AnimController.cs" />
     <Compile Include="Assets\skripts\AIControllerNavMesh.cs" />
+    <Compile Include="Assets\skripts\Ammo.cs" />
     <Compile Include="Assets\skripts\AreaFire_Setings.cs" />
     <Compile Include="Assets\skripts\BulletSettingForTurel.cs" />
     <Compile Include="Assets\skripts\BulletSettings.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Assets\skripts\PeopleScoreContr.cs" />
     <Compile Include="Assets\skripts\PlayerController.cs" />
     <Compile Include="Assets\skripts\ScoreController.cs" />
+    <Compile Include="Assets\skripts\SpawnAmmo.cs" />
     <Compile Include="Assets\skripts\StartTimeScore.cs" />
     <Compile Include="Assets\skripts\TrajectoryRendererAdvanced.cs" />
     <Compile Include="Assets\skripts\TurelController.cs" />

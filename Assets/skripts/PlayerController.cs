@@ -28,12 +28,14 @@ public class PlayerController : MonoBehaviour
     {
         Move(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
         sc.Bullet.text = guns[useGun.IndexGun].GetComponent<Gun>().BulletInMagazineNow + " | " + guns[useGun.IndexGun].GetComponent<Gun>().NumBulletAll;
-        if (Input.GetKeyDown(KeyCode.Space) && guns[useGun.IndexGun].GetComponent<Gun>().auto == false && guns[useGun.IndexGun].GetComponent<Gun>().BulletInMagazineNow > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && guns[useGun.IndexGun].GetComponent<Gun>().auto == false)
         {
+            anim.SetBool("Fire", true);
             NoAutoShoot();
         }
-        if (Input.GetKey(KeyCode.Space) && guns[useGun.IndexGun].GetComponent<Gun>().auto == true && guns[useGun.IndexGun].GetComponent<Gun>().BulletInMagazineNow > 0)
+        if (Input.GetKey(KeyCode.Space) && guns[useGun.IndexGun].GetComponent<Gun>().auto == true)
         {
+            anim.SetBool("Fire", true);
             AutoShoot();
         }
         
@@ -68,35 +70,22 @@ public class PlayerController : MonoBehaviour
 
     public void Shooting()
     {
-        if (guns[useGun.IndexGun].GetComponent<Gun>().BulletInMagazineNow > 0)
-        {
-            guns[useGun.IndexGun].GetComponent<Gun>().Shoot();
-            guns[useGun.IndexGun].GetComponent<Gun>().BulletInMagazineNow--;
-        }       
+        guns[useGun.IndexGun].GetComponent<Gun>().Shoot(); 
     }
 
     public void AutoShoot()
     {
-        anim.SetBool("Fire", true);
-        Shooting();
-        Move(-0.3f, 0);
-
-        int varing = Random.Range(1, 3);
-        switch (varing)
+        
+        int y = Random.Range(1, 201);
+        if (y % 2 == 0)
         {
-            case 1:
-                Move(0, -0.6f);
-                break;
-            case 2:
-                Move(0, 0.6f);
-                break;
-        }
+            Shooting();
+        } 
     }
 
     public void NoAutoShoot()
     {
         Shooting();
-        Move(-0.3f, 0);
     }
 
     public void ReloadMagazine()
