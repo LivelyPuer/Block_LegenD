@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: Max`s Studio
   productName: Block LegenD
-  defaultCursor: {fileID: 2800000, guid: 7fe436e8f7db98444a04efa751fff76e, type: 3}
+  defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.5255299, g: 0.5283019, b: 0.50089, a: 0.89411765}
   m_ShowUnitySplashScreen: 1

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-using System;
+//using System;
 
 public class AIControllerNavMesh : MonoBehaviour
 {
@@ -38,9 +38,14 @@ public class AIControllerNavMesh : MonoBehaviour
         {
             gameObject.transform.LookAt(player.transform.position);
             Move(3);
-            gunAi.GetComponent<Gun>().ShootForAi();
-            rb.transform.position
-                -= rb.transform.forward * speedOtd * Time.deltaTime;
+            int v = Random.Range(1, 601);
+            if (v % 200 == 0)
+            {
+                gunAi.GetComponent<Gun>().ShootForAi();
+                rb.transform.position
+                    -= rb.transform.forward * speedOtd * Time.deltaTime;
+            }
+            
 
         }
     }

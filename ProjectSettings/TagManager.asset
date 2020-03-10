@@ -15,6 +15,7 @@ TagManager:
   - KnifePlayer
   - GunPlayer
   - PistolPlayer
+  - Inventory
   layers:
   - Default
   - TransparentFX

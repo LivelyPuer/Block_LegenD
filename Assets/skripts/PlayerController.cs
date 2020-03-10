@@ -12,10 +12,12 @@ public class PlayerController : MonoBehaviour
     public WeaponGet useGun;
     public List<GameObject> guns = new List<GameObject>();
     private Rigidbody rb;
+    public int GunIndex = 0;
     public bool fire = true;
     [SerializeField] public int speed = 5;
     [SerializeField] public int speedRotate = 3;
-    // Start is called before the first frame update
+    [SerializeField] public int BulletAutomate;
+    [SerializeField] public int BulletPistol;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -24,6 +26,14 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
+    private void Update()
+    {
+        guns[0].GetComponent<Gun>().NumBulletAll = guns[0].GetComponent<Gun>().NumBulletAll + BulletAutomate;
+        guns[1].GetComponent<Gun>().NumBulletAll = guns[1].GetComponent<Gun>().NumBulletAll + BulletPistol;
+        BulletAutomate = 0;
+        BulletPistol = 0;
+
+    }
     void FixedUpdate()
     {
         Move(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));

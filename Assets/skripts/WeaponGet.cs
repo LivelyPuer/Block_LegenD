@@ -44,6 +44,7 @@ public class WeaponGet : MonoBehaviour
         {
             g.SetActive(false);
         }
+        player.GetComponent<PlayerController>().GunIndex = i;
         IndexGun = i;
         if (guns[IndexGun].GetComponent<Gun>().MeleeWeapons)
         {

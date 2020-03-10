@@ -38,7 +38,7 @@ public class Gun : MonoBehaviour
         if (DistationForFire)
         {
             Debug.Log("Fire");
-            master.GetComponent<PlayerController>().MyScore++;
+            master.GetComponent<PlayerController>().MyScore += 5;
         }
         
     }
