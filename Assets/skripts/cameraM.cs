@@ -9,6 +9,14 @@ public class cameraM : MonoBehaviour
     public Vector3 offset = new Vector3(0, 2, -5);
     void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, target.position + offset, Time.deltaTime * smooth);
+        transform.position = Vector3.Lerp(transform.position, target.position + offset, Time.deltaTime * smooth);  
+    }
+    public void OnCursore()
+    {
+        Cursor.visible = true;
+    }
+    public void OffCursore()
+    {
+        Cursor.visible = false;
     }
 }

@@ -7,12 +7,11 @@ public class WeaponGet : MonoBehaviour
 {
     public List<GameObject> guns = new List<GameObject>();
     public int IndexGun;
-    private GameObject player;
+    public GameObject player;
     public Animator PlayerAnim;
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player").gameObject;
         //DontDestroyOnLoad(this);
     }
 
@@ -35,6 +34,7 @@ public class WeaponGet : MonoBehaviour
 
     public void UseGun(int i)
     {
+        
         if (IndexGun == i)
         {
             gameObject.SetActive(false);

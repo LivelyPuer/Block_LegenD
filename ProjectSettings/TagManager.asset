@@ -16,6 +16,8 @@ TagManager:
   - GunPlayer
   - PistolPlayer
   - Inventory
+  - EnemyBody
+  - manager
   layers:
   - Default
   - TransparentFX

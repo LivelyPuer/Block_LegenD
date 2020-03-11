@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Gun : MonoBehaviour
 {
     [SerializeField] public GameObject bullet;
-    [SerializeField] private GameObject master;
+    [SerializeField] public GameObject master;
     [SerializeField] public Transform shootPoint;
     [SerializeField] public float Impulse;
     [SerializeField] public bool MeleeWeapons;

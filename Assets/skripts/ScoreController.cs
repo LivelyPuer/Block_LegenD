@@ -14,9 +14,9 @@ public class ScoreController : MonoBehaviour
     public int ScoreBlue = 0;
     //public GameObject red;
     //public GameObject blue;
-    [SerializeField] Text ScoreBlueUI;
-    [SerializeField] Text YP;
-    [SerializeField] Text ScoreRedUI;
+    [SerializeField] public Text ScoreBlueUI;
+    [SerializeField] public Text YP;
+    [SerializeField] public Text ScoreRedUI;
     [SerializeField] public Text Bullet;
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,11 @@ public class ScoreController : MonoBehaviour
         Win.SetActive(false);
         foreach (GameObject red in redTeam)
         {
-            if (red.tag == "Player")
+            if (red.tag == "Turel")
+            {
+                red.GetComponent<TurelController>().RedTeamTurel = 0;
+            }
+            else if (red.tag == "Player")
             {
                 red.GetComponent<PlayerController>().MyScore = 0;
             }
@@ -35,7 +39,11 @@ public class ScoreController : MonoBehaviour
         }
         foreach (GameObject blue in blueTeam)
         {
-            if (blue.tag == "Player")
+            if (blue.tag == "Turel")
+            {
+                blue.GetComponent<TurelController>().BlueTeamTurel = 0;
+            }
+            else if (blue.tag == "Player")
             {
                 blue.GetComponent<PlayerController>().MyScore = 0;
             }
@@ -56,7 +64,11 @@ public class ScoreController : MonoBehaviour
         ScoreBlue = 0;
         foreach (GameObject red in redTeam)
         {
-            if (red.tag == "Player")
+            if (red.tag == "Turel")
+            {
+                ScoreRed += red.GetComponent<TurelController>().RedTeamTurel;
+            }
+            else if (red.tag == "Player")
             {
                 ScoreRed = ScoreRed + red.GetComponent<PlayerController>().MyScore;
             }
@@ -67,7 +79,11 @@ public class ScoreController : MonoBehaviour
         }
         foreach (GameObject blue in blueTeam)
         {
-            if (blue.tag == "Player")
+            if (blue.tag == "Turel")
+            {
+                ScoreRed += blue.GetComponent<TurelController>().RedTeamTurel;
+            }
+            else if (blue.tag == "Player")
             {
                 ScoreBlue = ScoreBlue + blue.GetComponent<PlayerController>().MyScore;
             }

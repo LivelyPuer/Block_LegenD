@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class BulletSettings : MonoBehaviour
 {
-    public List<GameObject> people = new List<GameObject>();
+    //public List<GameObject> people = new List<GameObject>();
     [SerializeField] private Canvas ES;
     private GameObject bullet;
     public bool player;
+    // private GameObject master;
     private GameObject master;
+
     public GameObject enemy;
     void Start()
     {
+        if (player)
+        {
+            master = GameObject.Find("player").gameObject;
+        }
+        else
+        {
+            master = GameObject.Find("bot").gameObject;
+        }
         bullet = (GameObject)this.gameObject;
         ES = GameObject.FindWithTag("HUD").GetComponent<Canvas>();
         
@@ -21,35 +31,43 @@ public class BulletSettings : MonoBehaviour
     void Update()
     {
         
-        if (player)
-        {
-            master = GameObject.FindWithTag("Player").gameObject;
-        }
-        else
-        {
-            master = GameObject.FindWithTag("Enemy").gameObject;
-        }
+        
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Ground")
+        if (master == null)
         {
             Bul_Destroy();
+            return;
         }
-        if (other.tag == "Player" && player == false)
-        {
-            master.GetComponent<AIControllerNavMesh>().MyScore++;
-            Bul_Destroy();
-        }
-        if (other.tag == "Enemy" && player == true)
-        {
-            master.GetComponent<PlayerController>().MyScore++;
-            Bul_Destroy();
-        }
+        switch (other.tag)
+            {
+            case "Player":
+                Debug.Log(master);
+                // Debug.Log(master.GetComponent<AIControllerNavMesh>());
+                if (master.tag == "Enemy")
+                {
+                    master.GetComponent<AIControllerNavMesh>().MyScore++;
 
-        
-
+                }
+                break;
+            case "Enemy":
+                Debug.Log("Я попал " + master);
+                if (master.tag == "Player")
+                {
+                    master.GetComponent<PlayerController>().MyScore++;
+                }                
+                break;
+            case "Ground":
+            case " ":
+            case "":
+            case "Untagged":
+                break;
+            default:
+                break;
+            }
+        Bul_Destroy();
     }
 
     public void Bul_Destroy()

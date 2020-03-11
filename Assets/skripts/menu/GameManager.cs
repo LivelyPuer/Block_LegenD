@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         {
             PauseMenuUI.SetActive(false);
         }
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame
@@ -30,15 +30,14 @@ public class GameManager : MonoBehaviour
         {
             if (InMenu == false)
             {
-                if (GameInInventory == false && GameInPause == false)
+                GameInInventory = !GameInInventory;
+                if (GameInInventory && GameInPause == false)
                 {
                     Inventory.SetActive(true);
-                    GameInInventory = true;
                 }
-                else
+                else if (GameInInventory == false || GameInPause)
                 {
                     Inventory.SetActive(false);
-                    GameInInventory = false;
                 }
             }
             
@@ -47,15 +46,14 @@ public class GameManager : MonoBehaviour
         {
             if (InMenu == false)
             {
+                GameInPause = !GameInPause;
                 if (GameInPause == false)
                 {
                     GamePause();
-                    GameInPause = true;
                 }
                 else
                 {
                     Continue();
-                    GameInPause = false;
                 }
             }
             
@@ -64,6 +62,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int level)
     {
+        Debug.Log("Выбираем уровень: " + level);
         Time.timeScale = 1f;
         SceneManager.LoadScene(level);
     } 
@@ -84,4 +83,9 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void InInventory()
+    {
+        GameInInventory = !GameInInventory;
+    }
 }
+
